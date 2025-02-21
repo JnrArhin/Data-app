@@ -38,3 +38,5 @@ gunicorn==21.2.0
 click==8.1.7
 itsdangerous==2.1.2 
 
+# AI Integration
+openai==1.12.0 
