@@ -34,11 +34,11 @@ class User(db.Model):
     is_admin = db.Column(db.Boolean, default=False)
     last_login = db.Column(db.DateTime)
 
-# Drop and recreate all tables
+# Only create tables if they don't exist
 with app.app_context():
-    db.drop_all()  # This will delete all existing data
-    db.create_all()
-    # Create admin user
+    db.create_all() 
+    
+    # Create admin user if it doesn't exist
     admin = User.query.filter_by(username='admin').first()
     if not admin:
         admin_user = User(username='admin', password='goldstonedbapp', status='approved', is_admin=True)
